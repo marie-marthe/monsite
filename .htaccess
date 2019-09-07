@@ -1,0 +1,22 @@
+# On autorise de renommer les pages
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# On peut enlever le .php et renommer les pages comme on le souhaite
+RewriteRule ^([^\.]+)$ $1.php 
+
+# On réécrit notre URL et on met [0-9]+ car on sait que dans $1 on aura que des chiffres
+
+# Profil
+RewriteRule ^voir-profil/([0-9]+)$ $voir_profil?id=$1  
+
+# Forum
+RewriteRule ^forum$ f_forum/forum 
+RewriteRule ^forum/([0-9]+)$ f_forum/sujet?id=$1 
+RewriteRule ^forum/([0-9]+)/([0-9]+)$ f_forum/topic?id_forum=$1&id_topic=$2 
+RewriteRule ^forum/creer-mon-topic$ f_forum/creer_topic 
+
+# Blog
+RewriteRule ^blog$ f_blog/blog 
+RewriteRule ^blog/([0-9]+)$ f_blog/voir_article?id=$1 
+RewriteRule ^blog/creer-mon-article$ f_blog/creer_article [L]
