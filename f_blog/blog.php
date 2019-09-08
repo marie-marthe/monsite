@@ -11,6 +11,8 @@
         ORDER BY b.date_creation DESC");
 
     $req = $req->fetchAll();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +28,7 @@
     <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php">Accueil</a>
+        <a class="navbar-brand" href="http://localhost:8888/monsite/index.php">Accueil</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +41,7 @@
                 }else{
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="profil">Mon profil</a>
+                        <a class="nav-link" href="http://localhost:8888/monsite/profil">Mon profil</a>
                     </li>
                     <?php
                 }
@@ -63,16 +65,16 @@
                     ?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="f_blog/blog.php">Gestion des Articles</a>
+                        <a class="nav-link" href="http://localhost:8888/monsite/f_blog/blog.php">Gestion des Articles</a>
                     </li>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="f_forum/forum.php">Gestion des Commentaires</a>
+                        <a class="nav-link" href="http://localhost:8888/monsite/f_forum/forum.php">Gestion des Commentaires</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="deconnexion">Deconnexion</a>
+                        <a class="nav-link" href="http://localhost:8888/monsite/deconnexion">Deconnexion</a>
                     </li>
                     <?php
                 }
@@ -101,7 +103,7 @@
 
                 <div class="col-sm-0 col-md-0 col-lg-0"></div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h1 style="text-align: center">Mon blog</h1>
+                    <h1 style="text-align: center">Gestion des articles</h1>
 
                     <?php
                     if(!isset($_SESSION['id'])){

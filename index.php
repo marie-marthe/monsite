@@ -7,9 +7,16 @@ $req = $DB->query("SELECT b.*, u.prenom, u.nom, c.titre as titre_cat
         FROM blog b
         LEFT JOIN utilisateur u ON u.id = b.id_user
         LEFT JOIN categorie c ON c.id_categorie = b.id_categorie
-        ORDER BY b.date_creation DESC");
+        ORDER BY b.date_creation DESC LIMIT 0,1");
 
 $req = $req->fetchAll();
+
+
+$com = $DB->query("SELECT *
+        FROM topic_commentaire
+        ORDER BY id_user");
+
+$com = $com->fetchAll();
 
 ?>
 
@@ -90,7 +97,7 @@ $req = $req->fetchAll();
 
                     <div class="content">
                         <a href="index.php"><h1>Billet simple pour l'Alaska</h1></a>
-                        <h2>par Jean Forteroche,<br/>acteur et ecrivain</h2>
+                        <h2>par Jean Forteroche,acteur et ecrivain</h2>
                         <br/>
 
 	            <div>
@@ -112,21 +119,17 @@ $req = $req->fetchAll();
                         <img src="content/html5up-story/images/alaska.png" alt="" />
                     </div>
 
-                            <p class="major">Bienvenue sur mon nouveau blog ! <br/> Pour mon <b>prochain ouvrage</b>, j'ai decide d'innover
+                    <h4> <p class="major">Bienvenue sur mon nouveau blog ! <br/> Pour mon <b>prochain ouvrage</b>, j'ai decide d'innover
                                 et de rendre ce livre <b>interactif</b>.
 
-                                <br/>' Bienvenue en Alaska' ne sera ecrit avec vous, chers lecteurs.
-                                <br/> <b>Je vous propose de decouvrir un chapitre de ce nouveau roman chaque semaine.
-                                    <br/> </b>N'hesitez pas a <b>commenter chacun d'entre eux.
-                                    <br/></b>Je vous ferai des retours.
-                                <br/>Bonne lecture !</p>
+                                <br/>Bonne lecture !</p> </h4>
                         </div>
 
 
                     </section>
 
 
-                    <section class="spotlight style1 orient-right content-align-center">
+                    <section class="spotlight style1 orient-right content-align">
 
                         <div class="content">
                             <h3 class="intro">Lisez et appreciez le dernier chapitre:</h3>
@@ -201,6 +204,7 @@ $req = $req->fetchAll();
                                     <?php
                                 }
                                 ?>
+
                                 <div class="form-group">
                                     <textarea class="form-control" rows="3" placeholder="Decrivez votre impression" name="contenu"><?php if(isset($contenu)){ echo $contenu; }?></textarea>
                                 </div>
@@ -211,9 +215,23 @@ $req = $req->fetchAll();
 
                             </form>
 
-                            <div class="button"><a href="f_blog/blog.php"> Decouvrez les precedents chapitres !</a></div>
+
+                            <?php
+                            foreach($com as $r){
+                            ?>
+                            <div style="margin-top: 20px; background: white; box-shadow: 0 5px 10px rgba(0, 0, 0, .09); padding: 5px 10px; border-radius: 10px">
+                                <a href="forum/<?= $r['pseudo'] ?>" style="color: #666; text-decoration: none; font-size: 28px;"><?= $r['text'] ?></a>
+                                <div style="border-top: 2px solid #EEE; padding: 15px 0">
+                                </div>
+                                <div style="padding-top: 15px; color: #ccc; font-style: italic; text-align: right;font-size: 12px;">
+                                    <?php
+                                    }
+                                    ?>
+
+
 
                         </div>
+                                <div class="button"><a href="http://localhost:8888/monsite/voir_article.php"> Decouvrez les precedents chapitres !</a></div>
 
                     </section>
                 </div>

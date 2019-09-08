@@ -22,7 +22,6 @@ $req = $DB->query( "SELECT b.*, u.prenom, u.nom, c.titre as titre_cat
         ORDER BY b.date_creation DESC");
 $req = $req->fetchAll();
 
-
 ?>
 
 

@@ -46,7 +46,7 @@
             <ul>
                 <li>Votre id est : <?= $afficher_profil['id'] ?></li>
                 <li>Votre mail est : <?= $afficher_profil['mail'] ?></li>
-                <li>Votre compte a �t� cr�e le : <?= $afficher_profil['date_creation_compte'] ?></li>
+                <li>Votre compte a été crée le : <?= $afficher_profil['date_creation_compte'] ?></li>
             </ul>
         <div>
             <a href="/view/admin/redactor.php" target="_blank">Créer un nouvel article</a>
